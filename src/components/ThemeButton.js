@@ -3,18 +3,20 @@ import { jsx } from "@emotion/core";
 import styled from "@emotion/styled";
 
 const Button = styled.button`
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
   background-color: ${props => props.theme.highlight};
   box-shadow: 2px 2px 0 ${props => props.theme.lining};
-  transition: transform 0.5s;
+  transition: transform 0.5s ease-in-out;
+  margin: 20px;
+  padding: 0;
   &:focus {
     outline: none;
   }
   &:active {
-    transform: scale(0.9);
+    transform: scale(0.7);
   }
 `;
 
