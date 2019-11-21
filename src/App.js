@@ -1,7 +1,8 @@
 import React from "react";
 import GlobalStyles from "./utils/GlobalStyles";
 import { ThemeProvider } from "emotion-theming";
-import defaultTheme from "./utils/defaultTheme";
+import defaultTheme from "./themes/defaultTheme";
+import Title from "./components/Title";
 // import styled from "@emotion/styled";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <>
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyles />
-        <h1>cliffhanger</h1>
+        <Title>cliffhanger</Title>
       </ThemeProvider>
     </>
   );
