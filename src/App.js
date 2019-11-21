@@ -1,7 +1,28 @@
+import { ThemeProvider } from "emotion-theming";
 import React from "react";
+import Header from "./components/Header";
+import themes from "./themes/theme";
+import GlobalStyles from "./utils/GlobalStyles";
 
 function App() {
-  return <div>cliffhanger</div>;
+  const [theme, setTheme] = React.useState(themes.default);
+
+  function handleThemeClick() {
+    if (theme === themes.default) {
+      setTheme(themes.light);
+    } else {
+      setTheme(themes.default);
+    }
+  }
+
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Header onClick={handleThemeClick} />
+      </ThemeProvider>
+    </>
+  );
 }
 
 export default App;
