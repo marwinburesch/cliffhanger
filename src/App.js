@@ -5,6 +5,7 @@ import themes from "./themes/theme";
 import GlobalStyles from "./utils/GlobalStyles";
 import ShowsList from "./components/ShowsList";
 import styled from "@emotion/styled";
+import Search from "./components/Search";
 
 const ContentWrapper = styled.div`
   width: 80vw;
@@ -25,12 +26,17 @@ function App() {
     }
   }
 
+  function handleSearch(value) {
+    console.log("App js says: " + value);
+  }
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <ContentWrapper>
           <Header onClick={handleThemeClick} />
+          <Search onSearch={handleSearch} />
           <ShowsList />
         </ContentWrapper>
       </ThemeProvider>

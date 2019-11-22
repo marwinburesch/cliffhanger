@@ -17,7 +17,7 @@ const Button = styled.button`
 const SearchButton = () => {
   return (
     <Button>
-      <img src={search} />
+      <img alt="searchbutton" src={search} />
     </Button>
   );
 };
