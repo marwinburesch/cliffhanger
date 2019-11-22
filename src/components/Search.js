@@ -6,16 +6,13 @@ const Searchbar = styled.input`
   height: 50px;
 `;
 
-const Search = ({ onSearch }) => {
-  const [searchValue, setSearchValue] = React.useState("");
-
-  function handleOnChange(event) {
+const Search = ({ onSearch, inputValue }) => {
+  function handleChange(event) {
     const value = event.target.value;
-    setSearchValue(value);
     onSearch(value);
   }
 
-  return <Searchbar value={searchValue} onChange={handleOnChange} />;
+  return <Searchbar value={inputValue} onChange={handleChange} />;
 };
 
 export default Search;

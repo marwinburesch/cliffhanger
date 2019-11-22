@@ -10,13 +10,13 @@ const List = styled.div`
   justify-content: space-evenly;
 `;
 
-const ShowsList = () => {
+const ShowsList = ({ searchValue }) => {
   const [shows, setShows] = React.useState([]);
 
   console.log(shows);
 
   async function refreshShows() {
-    const discoveredShows = await getDiscoverShows();
+    const discoveredShows = await getDiscoverShows(searchValue);
     setShows(discoveredShows);
   }
 

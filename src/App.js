@@ -17,6 +17,7 @@ const ContentWrapper = styled.div`
 
 function App() {
   const [theme, setTheme] = React.useState(themes.default);
+  const [searchValue, setSearchValue] = React.useState("");
 
   function handleThemeClick() {
     if (theme === themes.default) {
@@ -27,7 +28,8 @@ function App() {
   }
 
   function handleSearch(value) {
-    console.log("App js says: " + value);
+    setSearchValue(value);
+    console.log(value);
   }
 
   return (
@@ -35,9 +37,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <ContentWrapper>
-          <Header onClick={handleThemeClick} />
-          <Search onSearch={handleSearch} />
-          <ShowsList />
+          <Header title={searchValue} onClick={handleThemeClick} />
+          <Search inputValue={searchValue} onSearch={handleSearch} />
+          <ShowsList searchValue={searchValue} />
         </ContentWrapper>
       </ThemeProvider>
     </>

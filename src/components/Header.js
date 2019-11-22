@@ -10,10 +10,10 @@ const Flexbox = styled.div`
   justify-content: space-between;
 `;
 
-const Header = ({ onClick }) => {
+const Header = ({ onClick, title }) => {
   return (
     <Flexbox>
-      <Title>cliffhanger.</Title>
+      <Title>{title}</Title>
       <ThemeButton onClick={onClick} />
       <SearchButton />
     </Flexbox>
