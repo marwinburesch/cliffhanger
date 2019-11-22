@@ -4,6 +4,15 @@ import Header from "./components/Header";
 import themes from "./themes/theme";
 import GlobalStyles from "./utils/GlobalStyles";
 import ShowsList from "./components/ShowsList";
+import styled from "@emotion/styled";
+
+const ContentWrapper = styled.div`
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: column nowrap;
+`;
 
 function App() {
   const [theme, setTheme] = React.useState(themes.default);
@@ -20,8 +29,10 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Header onClick={handleThemeClick} />
-        <ShowsList />
+        <ContentWrapper>
+          <Header onClick={handleThemeClick} />
+          <ShowsList />
+        </ContentWrapper>
       </ThemeProvider>
     </>
   );
