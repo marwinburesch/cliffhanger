@@ -5,6 +5,15 @@ import SearchButton from "./SearchButton";
 const Searchbar = styled.input`
   width: 100%;
   height: 30px;
+  margin-right: 10px;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 4px 4px 0 ${props => props.theme.lining};
+  padding: 0 15px 0 15px;
+  font-size: 1rem;
+  font-family: "Raleway", sans-serif;
+  background: ${props => props.theme.primarytext};
+  color: ${props => props.theme.primary};
 `;
 
 const Form = styled.form`

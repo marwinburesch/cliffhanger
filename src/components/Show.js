@@ -8,14 +8,13 @@ const ItemWrapper = styled.div`
 `;
 
 const Item = styled.img`
-  height: 135px;
   width: 100%;
   object-fit: cover;
   object-position: top center;
 `;
 
-const MissingImage = styled.span`
-  height: 135px;
+const MissingImage = styled.div`
+  text-align: center;
   width: 100%;
   color: ${props => props.theme.primarytext};
 `;
@@ -29,6 +28,7 @@ const Show = ({ show }) => {
           src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
         />
       )}
+      {!show.poster_path && <h2>{show.name}</h2>}
       {!show.poster_path && <MissingImage>no image! ¯\_(ツ)_/¯</MissingImage>}
     </ItemWrapper>
   );

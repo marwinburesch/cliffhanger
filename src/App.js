@@ -20,12 +20,12 @@ function App() {
   const [theme, setTheme] = React.useState(themes.default);
   const [shows, setShows] = React.useState(null);
 
-  console.log(shows);
-
   async function refreshShows(searchValue) {
     const discoveredShows = await getDiscoverShows(searchValue);
     setShows(discoveredShows);
   }
+
+  console.log(shows);
 
   function handleThemeClick() {
     if (theme === themes.default) {

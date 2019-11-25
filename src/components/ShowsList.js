@@ -4,9 +4,9 @@ import Show from "./Show";
 
 const List = styled.div`
   width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 `;
 
 const ShowsList = ({ shows }) => {
