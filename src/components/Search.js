@@ -8,6 +8,7 @@ const Searchbar = styled.input`
 `;
 
 const Form = styled.form`
+  margin-bottom: 15px;
   display: flex;
 `;
 

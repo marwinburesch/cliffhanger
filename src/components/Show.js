@@ -14,13 +14,22 @@ const Item = styled.img`
   object-position: top center;
 `;
 
+const MissingImage = styled.span`
+  height: 135px;
+  width: 100%;
+  color: ${props => props.theme.primarytext};
+`;
+
 const Show = ({ show }) => {
   return (
     <ItemWrapper>
-      <Item
-        alt={`${show.title}`}
-        src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
-      />
+      {show.poster_path && (
+        <Item
+          alt={`${show.title}`}
+          src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
+        />
+      )}
+      {!show.poster_path && <MissingImage>no image! ¯\_(ツ)_/¯</MissingImage>}
     </ItemWrapper>
   );
 };
