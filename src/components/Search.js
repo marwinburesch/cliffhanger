@@ -1,18 +1,35 @@
 import React from "react";
 import styled from "@emotion/styled";
+import SearchButton from "./SearchButton";
 
 const Searchbar = styled.input`
-  width: 200px;
-  height: 50px;
+  width: 100%;
+  height: 30px;
 `;
 
-const Search = ({ onSearch, inputValue }) => {
-  function handleChange(event) {
-    const value = event.target.value;
-    onSearch(value);
+const Form = styled.form`
+  display: flex;
+`;
+
+const Search = ({ onSubmit }) => {
+  const [searchValue, setSearchValue] = React.useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onSubmit(searchValue);
   }
 
-  return <Searchbar value={inputValue} onChange={handleChange} />;
+  function handleChange(event) {
+    const value = event.target.value;
+    setSearchValue(value);
+  }
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Searchbar value={searchValue} onChange={handleChange} />
+      <SearchButton />
+    </Form>
+  );
 };
 
 export default Search;

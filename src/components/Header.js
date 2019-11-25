@@ -2,7 +2,6 @@ import React from "react";
 import Title from "./Title";
 import ThemeButton from "./ThemeButton";
 import styled from "@emotion/styled";
-import SearchButton from "./SearchButton";
 
 const Flexbox = styled.div`
   display: flex;
@@ -15,7 +14,6 @@ const Header = ({ onClick, title }) => {
     <Flexbox>
       <Title>{title}</Title>
       <ThemeButton onClick={onClick} />
-      <SearchButton />
     </Flexbox>
   );
 };

@@ -6,6 +6,7 @@ import GlobalStyles from "./utils/GlobalStyles";
 import ShowsList from "./components/ShowsList";
 import styled from "@emotion/styled";
 import Search from "./components/Search";
+import { getDiscoverShows } from "./api/shows";
 
 const ContentWrapper = styled.div`
   width: 80vw;
@@ -17,7 +18,14 @@ const ContentWrapper = styled.div`
 
 function App() {
   const [theme, setTheme] = React.useState(themes.default);
-  const [searchValue, setSearchValue] = React.useState("");
+  const [shows, setShows] = React.useState(null);
+
+  console.log(shows);
+
+  async function refreshShows(searchValue) {
+    const discoveredShows = await getDiscoverShows(searchValue);
+    setShows(discoveredShows);
+  }
 
   function handleThemeClick() {
     if (theme === themes.default) {
@@ -27,19 +35,14 @@ function App() {
     }
   }
 
-  function handleSearch(value) {
-    setSearchValue(value);
-    console.log(value);
-  }
-
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <ContentWrapper>
-          <Header title={searchValue} onClick={handleThemeClick} />
-          <Search inputValue={searchValue} onSearch={handleSearch} />
-          <ShowsList searchValue={searchValue} />
+          <Header title={"cliffhanger."} onClick={handleThemeClick} />
+          <Search onSubmit={refreshShows} />
+          <ShowsList shows={shows} />
         </ContentWrapper>
       </ThemeProvider>
     </>

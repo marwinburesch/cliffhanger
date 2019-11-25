@@ -1,5 +1,4 @@
 import React from "react";
-import { getDiscoverShows } from "../api/shows";
 import styled from "@emotion/styled";
 import Show from "./Show";
 
@@ -10,25 +9,10 @@ const List = styled.div`
   justify-content: space-evenly;
 `;
 
-const ShowsList = ({ searchValue }) => {
-  const [shows, setShows] = React.useState([]);
-
-  console.log(shows);
-
-  async function refreshShows() {
-    const discoveredShows = await getDiscoverShows(searchValue);
-    setShows(discoveredShows);
-  }
-
-  React.useEffect(() => {
-    refreshShows();
-  }, []);
-
+const ShowsList = ({ shows }) => {
   return (
     <List>
-      {shows.map(show => (
-        <Show show={show} key={show.id} />
-      ))}
+      {shows && shows.map(show => <Show show={show} key={show.id} />)}
     </List>
   );
 };
