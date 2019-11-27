@@ -3,10 +3,11 @@ import React from "react";
 import Header from "./components/Header";
 import themes from "./themes/theme";
 import GlobalStyles from "./utils/GlobalStyles";
-import ShowsList from "./components/ShowsList";
 import styled from "@emotion/styled";
-import Search from "./components/Search";
 import { getDiscoverShows } from "./api/shows";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Search from "./pages/Search";
+import Home from "./pages/Home";
 
 const ContentWrapper = styled.div`
   width: 80vw;
@@ -36,16 +37,22 @@ function App() {
   }
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <ContentWrapper>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <ContentWrapper>
+        <Router>
           <Header title={"cliffhanger."} onClick={handleThemeClick} />
-          <Search onSubmit={refreshShows} />
-          <ShowsList shows={shows} />
-        </ContentWrapper>
-      </ThemeProvider>
-    </>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/search">
+              <Search shows={shows} onSubmit={refreshShows} />
+            </Route>
+          </Switch>
+        </Router>
+      </ContentWrapper>
+    </ThemeProvider>
   );
 }
 
