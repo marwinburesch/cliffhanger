@@ -5,7 +5,7 @@ import themes from "./themes/theme";
 import GlobalStyles from "./utils/GlobalStyles";
 import styled from "@emotion/styled";
 import { getDiscoverShows } from "./api/shows";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Search from "./pages/Search";
 import Home from "./pages/Home";
 
