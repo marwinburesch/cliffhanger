@@ -1,34 +1,18 @@
 import React from "react";
-import { getDiscoverShows } from "../api/shows";
 import styled from "@emotion/styled";
 import Show from "./Show";
 
 const List = styled.div`
   width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 `;
 
-const ShowsList = () => {
-  const [shows, setShows] = React.useState([]);
-
-  console.log(shows);
-
-  async function refreshShows() {
-    const discoveredShows = await getDiscoverShows();
-    setShows(discoveredShows);
-  }
-
-  React.useEffect(() => {
-    refreshShows();
-  }, []);
-
+const ShowsList = ({ shows }) => {
   return (
     <List>
-      {shows.map(show => (
-        <Show show={show} key={show.id} />
-      ))}
+      {shows && shows.map(show => <Show show={show} key={show.id} />)}
     </List>
   );
 };

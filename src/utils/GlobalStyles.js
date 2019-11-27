@@ -13,16 +13,18 @@ export default function GlobalStyles() {
           box-sizing: border-box;
           transition: background 0.5s, color 0.5s;
         }
-
         body {
-          width: 100vw;
-          height: 100vh;
           margin: 0;
           font-family: "Raleway", sans-serif;
           background: ${theme.primary};
         }
         h1 {
           font-family: "Abril Fatface", cursive;
+          color: ${theme.primarytext};
+        }
+        h2 {
+          font-family: "Abril Fatface", cursive;
+          text-align: center;
           color: ${theme.primarytext};
         }
       `}
