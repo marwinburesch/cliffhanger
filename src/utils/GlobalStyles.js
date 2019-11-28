@@ -12,12 +12,12 @@ export default function GlobalStyles() {
         *::after {
           box-sizing: border-box;
           transition: background 0.5s, color 0.5s;
+          color: ${theme.primarytext};
         }
         body {
           margin: 0;
           font-family: "Raleway", sans-serif;
           background: ${theme.primary};
-          color: ${theme.primarytext};
         }
         a {
           color: #f24b4b;
@@ -28,12 +28,10 @@ export default function GlobalStyles() {
         }
         h1 {
           font-family: "Abril Fatface", cursive;
-          color: ${theme.primarytext};
         }
         h2 {
           font-family: "Abril Fatface", cursive;
           text-align: center;
-          color: ${theme.primarytext};
         }
       `}
     />
