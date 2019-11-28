@@ -21,7 +21,7 @@ const Form = styled.form`
   display: flex;
 `;
 
-const Search = ({ onSubmit }) => {
+const SearchShows = ({ onSubmit }) => {
   const [searchValue, setSearchValue] = React.useState("");
 
   function handleSubmit(event) {
@@ -42,4 +42,4 @@ const Search = ({ onSubmit }) => {
   );
 };
 
-export default Search;
+export default SearchShows;
