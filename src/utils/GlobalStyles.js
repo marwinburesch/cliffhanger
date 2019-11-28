@@ -17,6 +17,14 @@ export default function GlobalStyles() {
           margin: 0;
           font-family: "Raleway", sans-serif;
           background: ${theme.primary};
+          color: ${theme.primarytext};
+        }
+        a {
+          color: #f24b4b;
+          text-decoration: none;
+          &::visited {
+            color: #f24b4b;
+          }
         }
         h1 {
           font-family: "Abril Fatface", cursive;
