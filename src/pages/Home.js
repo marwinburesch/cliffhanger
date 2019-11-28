@@ -5,8 +5,10 @@ const Home = () => {
   return (
     <div>
       Welcome to cliffhanger. This site is powered by the{" "}
-      <Link to="https://developers.themoviedb.org/"> themoviedb.org API</Link>.
-      If you want to search TV shows follow this link
+      <a href="https://developers.themoviedb.org/" target="_blank">
+        themoviedb.org API
+      </a>
+      . If you want to search TV shows follow this link
       <Link to="/search"> search shows</Link>
     </div>
   );
