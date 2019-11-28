@@ -1,7 +1,8 @@
 import { ThemeProvider } from "emotion-theming";
 import React from "react";
 import Header from "./components/Header";
-import themes from "./themes/defaultTheme";
+import defaultTheme from "./themes/defaultTheme";
+import lightTheme from "./themes/lightTheme";
 import GlobalStyles from "./utils/GlobalStyles";
 import styled from "@emotion/styled";
 import { getDiscoverShows } from "./api/shows";
@@ -18,7 +19,7 @@ const ContentWrapper = styled.div`
 `;
 
 function App() {
-  const [theme, setTheme] = React.useState(themes.default);
+  const [theme, setTheme] = React.useState(defaultTheme);
   const [shows, setShows] = React.useState(null);
 
   async function refreshShows(searchValue) {
@@ -29,10 +30,10 @@ function App() {
   console.log(shows);
 
   function handleThemeClick() {
-    if (theme === themes.default) {
-      setTheme(themes.light);
+    if (theme === defaultTheme) {
+      setTheme(lightTheme);
     } else {
-      setTheme(themes.default);
+      setTheme(defaultTheme);
     }
   }
 
